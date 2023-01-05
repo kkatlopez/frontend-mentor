@@ -16,14 +16,16 @@
 </head>
 <body>
     <div class="main d-flex flex-column justify-content-center align-items-center">
-        <h1 class="header pb-4">SPLI<br/>TTER</h1>
-        <div class="container d-flex align-self-center">
+        <header>
+            <h1 class="header pb-4">SPLI<br/>TTER</h1>
+        </header>
+        <main class="container d-flex align-self-center">
             <div class="card border-0 vw-100">
-                <div class="card-body m-3">
+                <div class="card-body my-1 mx-3">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 d-flex align-items-center">
                             <form id="bill-form">
-                                <div class="mb-4">
+                                <section class="mb-4">
                                     <div class="d-flex justify-content-between">
                                         <label for="bill-amt" class="form-label">Bill</label>
                                         <span id="bill-error"></span>
@@ -32,8 +34,8 @@
                                         <span class="input-group-text"><img src="./images/icon-dollar.svg" alt="Dollar sign icon"></span>
                                         <input type="number" class="form-control bill-data" id="bill-amt" placeholder="0">
                                     </div>
-                                </div>
-                                <div class="row mb-4" id="bill-pct">
+                                </section>
+                                <section class="row mb-4" id="bill-pct">
                                     <span><label class="form-label">Select Tip %</label><br/></span>
                                     <div class="col-6 col-sm-6 col-md-4 col-lg-4">
                                         <input type="radio" class="btn-check" name="btnradio" id="btn-five">
@@ -59,8 +61,8 @@
                                         <input type="number" class="form-control tip" id="cust" placeholder="Custom">
                                         <label class="custom" for="btn-cust" data-pct="custom" style="display: none;"></label>
                                     </div>
-                                </div>
-                                <div>
+                                </section>
+                                <section>
                                     <div class="d-flex justify-content-between">
                                         <label for="bill-people" class="form-label">Number of People</label>
                                         <span id="people-error"></span>
@@ -69,10 +71,10 @@
                                         <span class="input-group-text"><img src="./images/icon-person.svg" alt="People icon"></span>
                                         <input type="number" class="form-control bill-data" id="bill-people" placeholder="0">
                                     </div>
-                                </div>
+                                </section>
                             </form>
                         </div>
-                        <div class="col-xs-12 col-md-6 pt-5 px-5" id="bill-output">
+                        <section class="col-xs-12 col-md-6 pt-5 px-5" id="bill-output">
                             <div class="row d-flex justify-content-between">
                                 <div class="col">
                                     <span class="bill-header">Total Amount<br/><span>with tip</span></span>
@@ -108,15 +110,15 @@
                             <div class="row d-flex align-items-end pt-3">
                                 <button type="button" class="btn btn-primary btn-lg w-100" id="reset-form">RESET</button>
                             </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="attribution pt-3">
+        </main>
+        <footer class="attribution pt-3">
             Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
             Coded by <a href="https://linkedin.com/in/kkatlopez">Kat Lopez</a>.
-        </div>
+        </footer>
     </div>
 
 </body>
