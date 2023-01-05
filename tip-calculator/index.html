@@ -21,7 +21,7 @@
             <div class="card border-0 vw-100">
                 <div class="card-body m-3">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-xs-12 col-md-6">
                             <form id="bill-form">
                                 <div class="mb-4">
                                     <div class="d-flex justify-content-between">
@@ -34,29 +34,30 @@
                                     </div>
                                 </div>
                                 <div class="row mb-4" id="bill-pct">
-                                    <label class="form-label">Select Tip %</label><br/>
-                                    <div class="row mx-0 mb-2" role="group">
-                                        <div class="col-4 ps-0">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btn-five" autocomplete="off">
-                                            <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-five" data-pct="5">5%</label>
-    
-                                            <input type="radio" class="btn-check" name="btnradio" id="btn-twtyfve" autocomplete="off">
-                                            <label class="btn btn-outline-primary rounded tip" for="btn-twtyfve" data-pct="25">25%</label>
-                                        </div>
-                                        <div class="col-4">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btn-ten" autocomplete="off">
-                                            <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-ten" data-pct="10">10%</label>
-    
-                                            <input type="radio" class="btn-check" name="btnradio" id="btn-fifty" autocomplete="off">
-                                            <label class="btn btn-outline-primary rounded tip" for="btn-fifty" data-pct="50">50%</label>
-                                        </div>
-                                        <div class="col-4">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btn-fiftn" autocomplete="off">
-                                            <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-fiftn" data-pct="15">15%</label>
-    
-                                            <input type="number" class="form-control tip" id="cust" placeholder="Custom">
-                                            <label class="custom" for="btn-cust" data-pct="custom" hidden></label>
-                                        </div>
+                                    <span><label class="form-label">Select Tip %</label><br/></span>
+                                    <div class="col-sm-6 col-md-4 col-lg-4">
+                                        <input type="radio" class="btn-check" name="btnradio" id="btn-five" autocomplete="off">
+                                        <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-five" data-pct="5">5%</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-4">
+                                        <input type="radio" class="btn-check" name="btnradio" id="btn-ten" autocomplete="off">
+                                        <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-ten" data-pct="10">10%</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-4">
+                                        <input type="radio" class="btn-check" name="btnradio" id="btn-fiftn" autocomplete="off">
+                                        <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-fiftn" data-pct="15">15%</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-4">
+                                        <input type="radio" class="btn-check" name="btnradio" id="btn-twtyfve" autocomplete="off">
+                                        <label class="btn btn-outline-primary rounded tip" for="btn-twtyfve" data-pct="25">25%</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-4">
+                                        <input type="radio" class="btn-check" name="btnradio" id="btn-fifty" autocomplete="off">
+                                        <label class="btn btn-outline-primary rounded tip" for="btn-fifty" data-pct="50">50%</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-4">
+                                        <input type="number" class="form-control tip" id="cust" placeholder="Custom">
+                                        <label class="custom" for="btn-cust" data-pct="custom" hidden></label>
                                     </div>
                                 </div>
                                 <div>
@@ -71,7 +72,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col ms-3 pt-5 px-5" id="bill-output">
+                        <div class="col-xs-12 col-md-6 pt-5 px-5" id="bill-output">
                             <div class="row d-flex justify-content-between">
                                 <div class="col">
                                     <span class="bill-header">Tip Amount<br/><span>/ person</span></span>

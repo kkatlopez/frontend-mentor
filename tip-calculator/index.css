@@ -95,10 +95,6 @@ input[type="number"]:focus {
     border-radius: 22px;
 }
 
-/* #bill-pct .row .col {
-    min-width: 100%;
-} */
-
 .btn {
     border: 0;
 }
@@ -189,7 +185,7 @@ input[type="number"]:focus {
 .total {
     color: hsl(172, 67%, 45%);
     font-size: 48px;
-    height: 96px;
+    height: 88px;
 }
 
 input::-webkit-outer-spin-button,
@@ -212,10 +208,50 @@ input::-webkit-inner-spin-button {
     }
 }
 
+@media (max-width: 767.98px) {
+    .container {
+        margin: 0;
+        min-width: 100vw;
+        padding: 0;
+    }
+}
+
+@media(max-width: 991.98px) {
+    input[type="number"],
+    input[type="number"]:focus,
+    .btn {
+        font-size: 16px;
+    }
+    .card {
+        border-radius: 16px;
+    }
+    .card-body {
+        margin: 0;
+    }
+    #bill-output {
+        border-radius: 12px;
+        padding: 2rem !important;
+        margin-top: 1rem;
+    }
+    .total {
+        height: 90px;
+        font-size: 36px;
+    }
+    .bill-header {
+        font-size: 16px;
+    }
+    .bill-header span {
+        font-size: 12px;
+    }
+}
+
 @media (max-width: 1199.98px) {
     input[type="number"],
     input[type="number"]:focus,
     .btn {
         font-size: 18px;
+    }
+    .total {
+        height: 80px;
     }
 }
