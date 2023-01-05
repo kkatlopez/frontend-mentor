@@ -1,93 +1,156 @@
-# Frontend Mentor - Tip calculator app
+# Frontend Mentor - Tip calculator app solution
 
-![Design preview for the Tip calculator app coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this tip calculator app and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+![Screenshot of solution](./images//screenshot.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Links
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- Solution URL: [GitHub repository](https://github.com/kkatlopez/frontend-mentor/tree/main/tip-calculator)
+- Live Site URL: [Vercel](https://frontend-mentor-kkatlopez.vercel.app/tip-calculator/index.html)
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+## My process
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+### Built with
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+- Semantic HTML5 markup
+- CSS custom properties
+- Bootstrap
+- Flexbox
+- Mobile-first workflow
+- jQuery
 
-## Building your project
+### What I learned
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+This project required a decent amount of jQuery to perform the calculations and also getting the form inputs. The code snippets below are the ones that required the most learning.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+Below is a code snipped of how I calculated the tip and total amount per person from the HTML form. There are checks for if the amount of the bill or number of people are less than 1. If true, an `error` class is added to let the user know that the input is invalid.
 
-## Deploying your project
+```javascript
+$("#bill-form").on('.bill-data input', function() {
+    var amount = $("#bill-amt").val();
+    var people = $("#bill-people").val();
+    if (amount < 1 && amount.length != 0) {
+        $(".input-group#bill").addClass("error").removeClass("input-focus");
+        $("#bill-error").text("Enter an amount greater than 0").css("color", "#cf491d");
+    } else if (Number.isNaN(amount)) {
+        $(".input-group#bill").addClass("error").removeClass("input-focus");
+    } else {
+        $(".input-group#bill").removeClass("error");
+        $("#bill-error").empty();
+    }
+    if (people < 1 && people.length != 0) {
+        $(".input-group#num-people").addClass("error").removeClass("input-focus");
+        $("#people-error").text("Enter quantity greater than 0").css("color", "#cf491d");
+    } else {
+        $(".input-group#num-people").removeClass("error");
+        $("#people-error").empty();
+    }
+    var totalPer;
+    var tipPer;
+    if (amount && people && tip) {
+        $("#reset-form").attr("disabled", false);
+        var bill = billMath(amount, people, tip);
+        totalPer = bill[0];
+        tipPer = bill[1];
+    }
+    if (isFinite(totalPer) || isFinite(tipPer)) {
+        $("#total-per").text("$" + totalPer);
+        $("#tip-per").text("$" + tipPer);
+    }
+});
+```
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+I also wrote a function to get calculate the tip and total amount per person called `billMath` that is used in the code above. It takes the amount, people, and tip inputted by the user and returns an array of the total per person and tip per person.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+```javascript
+function billMath($amount, $people, $tip) {
+    var totalPerPerson = (((1 + $tip) * $amount) / $people).toFixed(2);
+    var tipPerPerson = (($amount * $tip) / $people).toFixed(2);
+    return [totalPerPerson, tipPerPerson];
+}
+```
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+Adding the focus states was a little bit difficult. jQuery has two functions called `focusin` and `focusout` that helped with that. Below is how those are used for the bill amount and number of people inputs. The class `input-focus` has the style for the focus state.
 
-## Create a custom `README.md`
+```javascript
+var inputGroup = $(".input-group");
+inputGroup.focusin(function() {
+    $(this).addClass("input-focus");
+});
+inputGroup.focusout(function() {
+    $(this).removeClass("input-focus");
+});
+```
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+I also used media queries to accomodate different screensizes. Below is an example for screensizes that are below 991.98px (tablet size).
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+```css
+@media(max-width: 991.98px) {
+    input[type="number"],
+    input[type="number"]:focus,
+    .btn {
+        font-size: 16px;
+    }
+    .card {
+        border-radius: 16px;
+    }
+    .card-body {
+        margin: 0;
+    }
+    #bill-output {
+        border-radius: 12px;
+        padding: 2rem !important;
+        margin-top: 1rem;
+    }
+    .total {
+        height: 90px;
+        font-size: 36px;
+    }
+    .bill-header {
+        font-size: 16px;
+    }
+    .bill-header span {
+        font-size: 12px;
+    }
+}
+```
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+### Continued development
 
-## Submitting your solution
+Here are a few things I want to add to the project:
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+- [ ] Display total tip amount
+- [ ] Display amount per person before tip
+- [ ] Do not let users input non-float values
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+In general, I would also like to clean up the JS code and see how I could make it more efficient.
 
-## Sharing your solution
+## Author
 
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Website - [Kat Lopez](https://linkedin.com/in/kkatlopez)
+- Frontend Mentor - [@kkatlopez](https://www.frontendmentor.io/profile/kkatlopez)

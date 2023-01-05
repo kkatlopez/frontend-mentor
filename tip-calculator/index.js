@@ -45,6 +45,7 @@ $(document).ready(function() {
         var totalPer;
         var tipPer;
         if (amount && people && tip) {
+            $("#reset-form").attr("disabled", false);
             var bill = billMath(amount, people, tip);
             totalPer = bill[0];
             tipPer = bill[1];
@@ -52,9 +53,6 @@ $(document).ready(function() {
         if (isFinite(totalPer) || isFinite(tipPer)) {
             $("#total-per").text("$" + totalPer);
             $("#tip-per").text("$" + tipPer);
-        }
-        if (amount && people && tip) {
-            $("#reset-form").attr("disabled", false);
         }
     });
 
