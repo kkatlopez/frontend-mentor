@@ -1,0 +1,221 @@
+body {
+    background-color: hsl(185, 41%, 84%);
+    font-family: "Space Mono", "serif";
+    font-weight: bold;
+}
+
+.header {
+    font-weight: bold;
+    color: hsl(186, 14%, 43%);
+    letter-spacing: 16px;
+    font-size: 32px;
+}
+
+.card {
+    border-radius: 36px;;
+}
+
+.form-label {
+    color: hsl(186, 14%, 43%);
+}
+
+.btn {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+input[type="number"],
+input[type="number"]:focus {
+    background-color: hsl(189, 41%, 97%);
+    border: none;
+    text-align: right;
+    border-radius: 6px;
+    color: hsl(183, 100%, 15%);
+    -moz-appearance: textfield;
+    font-weight: bold;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 24px;
+}
+
+#input-custom,
+#input-custom:focus {
+    background-color: hsl(189, 41%, 97%);
+}
+
+.input-group.input-focus,
+#cust.input-focus {
+    border: 3px solid hsl(172, 67%, 45%);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.input-group {
+    border: none;
+    border: 3px solid transparent;
+    border-radius: 6px;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.input-group input::-webkit-input-placeholder {
+    color: hsl(185, 41%, 84%);
+    background-color: hsl(189, 41%, 97%);
+}
+
+.input-group input::-moz-placeholder {
+    color: hsl(185, 41%, 84%);
+    background-color: hsl(189, 41%, 97%);
+}
+
+.input-group input:-ms-input-placeholder {
+    color: hsl(185, 41%, 84%);
+    background-color: hsl(189, 41%, 97%);
+}
+
+.input-group input::-ms-input-placeholder {
+    color: hsl(185, 41%, 84%);
+    background-color: hsl(189, 41%, 97%);
+}
+
+.input-group input::placeholder {
+    color: hsl(185, 41%, 84%);
+    background-color: hsl(189, 41%, 97%);
+}
+
+.input-group-text {
+    border: none;
+    background-color: hsl(189, 41%, 97%);
+    color: hsl(184, 14%, 56%);
+}
+
+#bill-output {
+    background-color: hsl(183, 100%, 15%);
+    border-radius: 22px;
+}
+
+/* #bill-pct .row .col {
+    min-width: 100%;
+} */
+
+.btn {
+    border: 0;
+}
+
+#bill-pct .btn {
+    background-color: hsl(183, 100%, 15%);
+    color: #fff;
+    min-width: 100%;
+}
+
+#bill-pct input::-webkit-input-placeholder {
+    text-align: center;
+    color: hsl(184, 14%, 56%);
+}
+
+#bill-pct input::-moz-placeholder {
+    text-align: center;
+    color: hsl(184, 14%, 56%);
+}
+
+#bill-pct input:-ms-input-placeholder {
+    text-align: center;
+    color: hsl(184, 14%, 56%);
+}
+
+#bill-pct input::-ms-input-placeholder {
+    text-align: center;
+    color: hsl(184, 14%, 56%);
+}
+
+#bill-pct input::placeholder {
+    text-align: center;
+    color: hsl(184, 14%, 56%);
+}
+
+#bill-pct .btn.custom {
+    background-color: hsl(189, 41%, 97%);
+    color: hsl(186, 14%, 43%);
+}
+
+#bill-pct .selected-tip {
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+    pointer-events: none;
+}
+
+#bill-pct .btn:hover,
+#bill-pct .btn.custom:hover {
+    background-color: hsl(185, 41%, 84%);
+    color: hsl(183, 100%, 15%);
+}
+
+#num-people.error,
+#bill.error {
+    border: 3px solid #cf491d;
+    overflow: hidden;
+}
+
+#num-people .input-group,
+#cust {
+    border: 3px solid transparent;
+}
+
+
+#reset-form {
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
+
+#reset-form:disabled {
+    background-color: hsl(186, 14%, 43%)
+}
+
+#reset-form:hover {
+    background-color: hsl(172, 67%, 45%);
+}
+
+.bill-header {
+    color: hsl(189, 41%, 97%);
+    font-size: 18px;
+}
+
+.bill-header span {
+    font-size: 14px;
+    color: rgb(255, 255, 255, 0.5);
+}
+
+.total {
+    color: hsl(172, 67%, 45%);
+    font-size: 48px;
+    height: 96px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center;
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%);
+}
+
+@media(min-width: 1400px) {
+    .container {
+        max-width: 72vw; 
+    }
+}
+
+@media (max-width: 1199.98px) {
+    input[type="number"],
+    input[type="number"]:focus,
+    .btn {
+        font-size: 18px;
+    }
+}

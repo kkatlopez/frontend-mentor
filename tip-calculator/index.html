@@ -1,44 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <title>Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+
+
+    </style>
 </head>
 <body>
+    <div class="main d-flex flex-column justify-content-center align-items-center vh-100">
+        <h1 class="header pb-5">SPLI<br/>TTER</h1>
+        <div class="container d-flex align-self-center">
+            <div class="card border-0 vw-100">
+                <div class="card-body m-3">
+                    <div class="row">
+                        <div class="col">
+                            <form id="bill-form">
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <label for="bill-amt" class="form-label">Bill</label>
+                                        <span id="bill-error"></span>
+                                    </div>
+                                    <div class="input-group" id="bill">
+                                        <span class="input-group-text"><img src="./images/icon-dollar.svg"></span>
+                                        <input type="number" class="form-control bill-data" id="bill-amt" placeholder="0">
+                                    </div>
+                                </div>
+                                <div class="row mb-4" id="bill-pct">
+                                    <label class="form-label">Select Tip %</label><br/>
+                                    <div class="row mx-0 mb-2" role="group">
+                                        <div class="col-4 ps-0">
+                                            <input type="radio" class="btn-check" name="btnradio" id="btn-five" autocomplete="off">
+                                            <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-five" data-pct="5">5%</label>
+    
+                                            <input type="radio" class="btn-check" name="btnradio" id="btn-twtyfve" autocomplete="off">
+                                            <label class="btn btn-outline-primary rounded tip" for="btn-twtyfve" data-pct="25">25%</label>
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="radio" class="btn-check" name="btnradio" id="btn-ten" autocomplete="off">
+                                            <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-ten" data-pct="10">10%</label>
+    
+                                            <input type="radio" class="btn-check" name="btnradio" id="btn-fifty" autocomplete="off">
+                                            <label class="btn btn-outline-primary rounded tip" for="btn-fifty" data-pct="50">50%</label>
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="radio" class="btn-check" name="btnradio" id="btn-fiftn" autocomplete="off">
+                                            <label class="btn btn-outline-primary mb-2 rounded tip" for="btn-fiftn" data-pct="15">15%</label>
+    
+                                            <input type="number" class="form-control tip" id="cust" placeholder="Custom">
+                                            <label class="custom" for="btn-cust" data-pct="custom" hidden></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="d-flex justify-content-between">
+                                        <label for="bill-people" class="form-label">Number of People</label>
+                                        <span id="people-error"></span>
+                                    </div>
+                                    <div class="input-group" id="num-people">
+                                        <span class="input-group-text"><img src="./images/icon-person.svg"></span>
+                                        <input type="number" class="form-control bill-data" id="bill-people" placeholder="0">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col ms-3 pt-5 px-5" id="bill-output">
+                            <div class="row d-flex justify-content-between">
+                                <div class="col">
+                                    <span class="bill-header">Tip Amount<br/><span>/ person</span></span>
+                                </div>
+                                <div class="col">
+                                    <p class="total text-end" id="tip-per"></p>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-between">
+                                <div class="col">
+                                    <span class="bill-header">Total Amount<br/><span>/ person</span></span>
+                                </div>
+                                <div class="col">
+                                    <p class="total text-end" id="total-per"></p>
+                                </div>
+                            </div>
+                            <div class="row d-flex align-items-end pt-4">
+                                <button type="button" class="btn btn-primary btn-lg w-100" id="reset-form">RESET</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="attribution pt-3">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+            Coded by <a href="https://linkedin.com/in/kkatlopez">Kat Lopez</a>.
+        </div>
+    </div>
 
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 </body>
 </html>
