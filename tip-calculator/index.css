@@ -4,6 +4,10 @@ body {
     font-weight: bold;
 }
 
+.main {
+    min-height: 100vh;
+}
+
 .header {
     font-weight: bold;
     color: hsl(186, 14%, 43%);
@@ -213,6 +217,9 @@ input::-webkit-inner-spin-button {
         margin: 0;
         min-width: 100vw;
         padding: 0;
+    }
+    .header {
+        padding-top: 1.2rem;
     }
 }
 
