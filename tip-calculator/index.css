@@ -157,11 +157,15 @@ input[type="number"]:focus {
     overflow: hidden;
 }
 
+#people-error,
+#bill-error {
+    color: #cf491d;
+}
+
 #num-people .input-group,
 #cust {
     border: 3px solid transparent;
 }
-
 
 #reset-form {
     background-color: hsl(172, 67%, 45%);

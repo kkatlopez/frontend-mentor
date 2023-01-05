@@ -146,7 +146,7 @@ Here are a few things I want to add to the project:
 
 - [ ] Display total tip amount
 - [ ] Display amount per person before tip
-- [ ] Do not let users input non-float values
+- [x] Do not let users input non-float values
 
 In general, I would also like to clean up the JS code and see how I could make it more efficient.
 

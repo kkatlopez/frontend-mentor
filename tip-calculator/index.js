@@ -26,22 +26,21 @@ $(document).ready(function() {
     $("#bill-form").on('.bill-data input', function() {
         var amount = $("#bill-amt").val();
         var people = $("#bill-people").val();
-        if (amount < 1 && amount.length != 0) {
-            $(".input-group#bill").addClass("error").removeClass("input-focus");
-            $("#bill-error").text("Enter an amount greater than 0").css("color", "#cf491d");
-        } else if (Number.isNaN(amount)) {
-            $(".input-group#bill").addClass("error").removeClass("input-focus");
+        if (amount.length != 0 && amount < 1) {
+            $(".input-group#bill").addClass("error");
+            $("#bill-error").text("Enter an amount greater than 0");
         } else {
             $(".input-group#bill").removeClass("error");
             $("#bill-error").empty();
         }
-        if (people < 1 && people.length != 0) {
+        if (people.length != 0 && people < 1) {
             $(".input-group#num-people").addClass("error").removeClass("input-focus");
-            $("#people-error").text("Enter quantity greater than 0").css("color", "#cf491d");
+            $("#people-error").text("Enter quantity greater than 0");
         } else {
             $(".input-group#num-people").removeClass("error");
             $("#people-error").empty();
         }
+
         var totalPer;
         var tipPer;
         if (amount && people && tip) {
@@ -54,6 +53,11 @@ $(document).ready(function() {
             $("#total-per").text("$" + totalPer);
             $("#tip-per").text("$" + tipPer);
         }
+    });
+
+    // Do not allow non-number values
+    $('input').on('keypress', function(key) {
+        if (key.charCode < 48 || key.charCode > 57) return false;
     });
 
     // Add class for focus state on bill amount and number of people
