@@ -170,6 +170,7 @@ input[type="number"]:focus {
 #reset-form {
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
+    margin-bottom: 1.2rem;
 }
 
 #reset-form:disabled {
@@ -216,18 +217,21 @@ input::-webkit-inner-spin-button {
     }
 }
 
-@media (max-width: 767.98px) {
-    .container {
-        margin: 0;
-        min-width: 100vw;
-        padding: 0;
+@media (max-width: 1199.98px) {
+    input[type="number"],
+    input[type="number"]:focus,
+    .btn {
+        font-size: 18px;
     }
-    .header {
-        padding-top: 1.2rem;
+    .total {
+        height: 80px;
     }
 }
 
 @media(max-width: 991.98px) {
+    .container {
+        min-width: 95%;
+    }
     input[type="number"],
     input[type="number"]:focus,
     .btn {
@@ -248,6 +252,9 @@ input::-webkit-inner-spin-button {
         height: 90px;
         font-size: 36px;
     }
+    #reset-form {
+        margin-bottom: 0;
+    }
     .bill-header {
         font-size: 16px;
     }
@@ -256,13 +263,13 @@ input::-webkit-inner-spin-button {
     }
 }
 
-@media (max-width: 1199.98px) {
-    input[type="number"],
-    input[type="number"]:focus,
-    .btn {
-        font-size: 18px;
+@media (max-width: 767.98px) {
+    .container {
+        margin: 0;
+        min-width: 100vw;
+        padding: 0;
     }
-    .total {
-        height: 80px;
+    .header {
+        padding-top: 1.2rem;
     }
 }

@@ -3,7 +3,9 @@ $(document).ready(function() {
     function billMath($amount, $people, $tip) {
         var totalPerPerson = (((1 + $tip) * $amount) / $people).toFixed(2);
         var tipPerPerson = (($amount * $tip) / $people).toFixed(2);
-        return [totalPerPerson, tipPerPerson];
+        var totalWithTip = ($amount * (1 + $tip)).toFixed(2);
+        var totalTip = ($amount * $tip).toFixed(2);
+        return [totalPerPerson, tipPerPerson, totalWithTip, totalTip];
     }
 
     // Get tip based on button click
@@ -21,7 +23,7 @@ $(document).ready(function() {
         }
     });
     
-    // Update amounts every time a change is made to an input
+    // Update amounts every time a change is made to an input and calculates bill
     $("#reset-form").attr("disabled", true);
     $("#bill-form").on('.bill-data input', function() {
         var amount = $("#bill-amt").val();
@@ -41,23 +43,35 @@ $(document).ready(function() {
             $("#people-error").empty();
         }
 
-        var totalPer;
-        var tipPer;
+        var totalPer, tipPer, totalWithTip, totalTip;
         if (amount && people && tip) {
             $("#reset-form").attr("disabled", false);
             var bill = billMath(amount, people, tip);
             totalPer = bill[0];
             tipPer = bill[1];
-        }
-        if (isFinite(totalPer) || isFinite(tipPer)) {
+            totalWithTip = bill[2];
+            totalTip = bill[3];
             $("#total-per").text("$" + totalPer);
             $("#tip-per").text("$" + tipPer);
+            $("#total-with-tip").text("$" + totalWithTip);
+            $("#tip-total").text("$" + totalTip);
         }
     });
 
     // Do not allow non-number values
     $('input').on('keypress', function(key) {
-        if (key.charCode < 48 || key.charCode > 57) return false;
+        var charC = (key.which) ? key.which : key.keyCode;
+        if (charC == 46) {
+            if ($(this).val().indexOf('.') === -1) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (charC > 31 && (charC < 48 || charC > 57))
+                return false;
+            }
+        return true;
     });
 
     // Add class for focus state on bill amount and number of people

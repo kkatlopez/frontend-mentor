@@ -21,7 +21,7 @@
             <div class="card border-0 vw-100">
                 <div class="card-body m-3">
                     <div class="row">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-md-6 d-flex align-items-center">
                             <form id="bill-form">
                                 <div class="mb-4">
                                     <div class="d-flex justify-content-between">
@@ -75,21 +75,37 @@
                         <div class="col-xs-12 col-md-6 pt-5 px-5" id="bill-output">
                             <div class="row d-flex justify-content-between">
                                 <div class="col">
-                                    <span class="bill-header">Tip Amount<br/><span>/ person</span></span>
+                                    <span class="bill-header">Total Amount<br/><span>with tip</span></span>
                                 </div>
                                 <div class="col">
-                                    <p class="total text-end" id="tip-per"></p>
+                                    <p class="total text-end" id="total-with-tip"></p>
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-between">
                                 <div class="col">
-                                    <span class="bill-header">Total Amount<br/><span>/ person</span></span>
+                                    <span class="bill-header">Amount<br/><span>/ person</span></span>
                                 </div>
                                 <div class="col">
                                     <p class="total text-end" id="total-per"></p>
                                 </div>
                             </div>
-                            <div class="row d-flex align-items-end pt-4">
+                            <div class="row d-flex justify-content-between">
+                                <div class="col">
+                                    <span class="bill-header">Total Tip<br/></span>
+                                </div>
+                                <div class="col">
+                                    <p class="total text-end" id="tip-total"></p>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-between">
+                                <div class="col">
+                                    <span class="bill-header">Tip<br/><span>/ person</span></span>
+                                </div>
+                                <div class="col">
+                                    <p class="total text-end" id="tip-per"></p>
+                                </div>
+                            </div>
+                            <div class="row d-flex align-items-end pt-3">
                                 <button type="button" class="btn btn-primary btn-lg w-100" id="reset-form">RESET</button>
                             </div>
                         </div>

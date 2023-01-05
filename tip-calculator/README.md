@@ -69,28 +69,31 @@ $("#bill-form").on('.bill-data input', function() {
         $("#people-error").empty();
     }
 
-    var totalPer;
-    var tipPer;
+    var totalPer, tipPer, totalWithTip, totalTip;
     if (amount && people && tip) {
         $("#reset-form").attr("disabled", false);
         var bill = billMath(amount, people, tip);
         totalPer = bill[0];
         tipPer = bill[1];
-    }
-    if (isFinite(totalPer) || isFinite(tipPer)) {
+        totalWithTip = bill[2];
+        totalTip = bill[3];
         $("#total-per").text("$" + totalPer);
         $("#tip-per").text("$" + tipPer);
+        $("#total-with-tip").text("$" + totalWithTip);
+        $("#tip-total").text("$" + totalTip);
     }
 });
 ```
 
-I also wrote a function to get calculate the tip and total amount per person called `billMath` that is used in the code above. It takes the amount, people, and tip inputted by the user and returns an array of the total per person and tip per person.
+I also wrote a function to calculate the total per person, tip per person, total amount with tip, and total tip called `billMath` that is used in the code above. It takes the amount, people, and tip inputted by the user and returns an array of four values.
 
 ```javascript
 function billMath($amount, $people, $tip) {
     var totalPerPerson = (((1 + $tip) * $amount) / $people).toFixed(2);
     var tipPerPerson = (($amount * $tip) / $people).toFixed(2);
-    return [totalPerPerson, tipPerPerson];
+    var totalWithTip = ($amount * (1 + $tip)).toFixed(2);
+    var totalTip = ($amount * $tip).toFixed(2);
+    return [totalPerPerson, tipPerPerson, totalWithTip, totalTip];
 }
 ```
 
@@ -110,6 +113,9 @@ I also used media queries to accomodate different screensizes. Below is an examp
 
 ```css
 @media(max-width: 991.98px) {
+    .container {
+        min-width: 95%;
+    }
     input[type="number"],
     input[type="number"]:focus,
     .btn {
@@ -130,6 +136,9 @@ I also used media queries to accomodate different screensizes. Below is an examp
         height: 90px;
         font-size: 36px;
     }
+    #reset-form {
+        margin-bottom: 0;
+    }
     .bill-header {
         font-size: 16px;
     }
@@ -143,9 +152,11 @@ I also used media queries to accomodate different screensizes. Below is an examp
 
 Here are a few things I want to add to the project:
 
-- [ ] Display total tip amount
-- [ ] Display amount per person before tip
+- [x] Display total tip amount
+- [x] Display amount per person before tip
 - [x] Do not let users input non-float values
+
+**All compete!**
 
 In general, I would also like to clean up the JS code and see how I could make it more efficient.
 
