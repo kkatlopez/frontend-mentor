@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub](https://your-solution-url.com)
-- Live Site URL: [Vercel](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/kkatlopez/frontend-mentor/tree/main/article-preview-component)
+- Live Site URL: [Vercel](https://frontend-mentor-kkatlopez.vercel.app/article-preview-component/index.html)
 
 ## My process
 
