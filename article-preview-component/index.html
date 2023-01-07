@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Active preview component</title>
+    <style>
+        .attribution { font-size: 11px; text-align: center; }
+        .attribution a { color: hsl(228, 45%, 44%); }
+    </style>
+</head>
+<body>
+    <div class="container d-flex align-items-center" id="main" role="main">
+        <div class="card border-0 my-auto mx-auto">
+            <div class="row g-0">
+                <div class="col-md-5 col-lg-4">
+                    <img src="./images/drawers.jpg" class="img-fluid drawer" alt="Teal drawers">
+                </div>
+                <div class="col-md-7 col-lg-8 align-self-center">
+                    <div class="px-5 pt-4 pb-3">
+                        <div class="row card-body p-0">
+                            <h5 class="card-title fw-bold pb-2 lh-base">Shift the overall look and feel by adding these wonderful touches to furniture in your home</h5>
+                            <p class="card-text lh-base ls-1">Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.</p>
+                        </div>
+                    </div>
+                    <div id="share" class="d-flex align-items-center align-self-end px-5">
+                        <div class="col-3 col-md-2">
+                            <img src="./images/avatar-michelle.jpg" class="img-fluid" id="avatar" alt="Michelle Appleton">
+                        </div>
+                        <div class="col-3 d-none share-media">
+                            <p class="mb-0 share-media-header">SHARE</p>
+                        </div>
+
+                        <div class="col-6 col-md-7">
+                            <p class="fw-bold mb-0">Michelle Appleton</p>
+                            <p class="mb-0" id="date">28 Jun 2020</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-evenly d-none share-media">
+                            <i class="fa-brands fa-square-facebook fa-2xl"></i>
+                            <i class="fa-brands fa-twitter fa-2xl"></i>
+                            <i class="fa-brands fa-pinterest fa-2xl"></i>
+                        </div>
+
+                        <div class="col-3 col-md-3 share-media-lg-container">
+                            <div class="tooltip-arrow"></div>
+                            <div class="col-6 d-flex d-none justify-content-evenly mb-4 share-media-lg">
+                                <div class="col d-flex justify-content-end my-auto">
+                                    <p class="mb-0 share-media-header">SHARE</p>
+                                </div>
+                                <div class="col d-flex justify-content-start my-auto icons">
+                                    <i class="fa-brands fa-square-facebook fa-xl"></i>
+                                    <i class="fa-brands fa-twitter fa-xl"></i>
+                                    <i class="fa-brands fa-pinterest fa-xl"></i>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-sm btn-padding float-end">
+                                <span class="fa-stack fa-1x share-icon">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-share fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-3 d-none share-media icons">
+                            <button type="button" class="btn btn-primary btn-sm float-end btn-padding">
+                                <span class="fa-stack fa-1x share-icon">
+                                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                                    <i class="fa-solid fa-share fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+              </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+            Coded by <a href="https://linkedin.com/in/kkatlopez">Kat Lopez</a>.
+        </div>
+    </footer>
+</body>
+</html>
