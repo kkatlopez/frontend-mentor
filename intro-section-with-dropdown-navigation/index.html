@@ -1,39 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Intro section with dropdown navigation</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Introduction section with dropdown navigation</title>
 </head>
 <body>
-
-  Features
-  Company
-  Careers
-  About
-
-  Login
-  Register
-
-  Make remote work
-
-  Get your team in sync, no matter your location. Streamline processes, 
-  create team rituals, and watch productivity soar.
-
-  Learn more
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    <div class="container-flex vh-100" id="main" role="main">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo.svg" alt="Snap logo"/>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">&nbsp;</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Features
+                            <img src="./images/icon-arrow-down.svg" class="ps-2" class="arrow-down" alt="Arrow down"/>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">
+                                    <img src="./images/icon-todo.svg" class="me-2" alt="Todo icon" width="16"/>
+                                    Todo List
+                                </a></li>
+                                <li><a class="dropdown-item" href="#">
+                                    <img src="./images/icon-calendar.svg" class="me-2" alt="Calendar icon" width="16"/>
+                                    Calendar
+                                </a></li>
+                                <li><a class="dropdown-item" href="#">
+                                    <img src="./images/icon-reminders.svg" class="me-2" alt="Calendar icon" width="16"/>
+                                    Reminders
+                                </a></li>
+                                <li><a class="dropdown-item" href="#">
+                                    <img src="./images/icon-planning.svg" class="me-2" alt="Calendar icon" width="16"/>
+                                    Planning
+                                </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-swap="./images/icon-arrow-up.svg" aria-expanded="false">
+                                Company
+                                <img src="./images/icon-arrow-down.svg" class="ps-2" class="arrow-down" alt="Arrow down"/>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">History</a></li>
+                                <li><a class="dropdown-item" href="#">Our Team</a></li>
+                                <li><a class="dropdown-item" href="#">Blog</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                    <div class="nav-buttons">
+                        <button class="btn">Login</button>
+                        <button class="btn btn-outline-dark" type="submit">Register</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-6 col-xl-6 d-flex flex-column" id="column-1">
+                    <div class="d-lg-none">
+                        <img src="./images/image-hero-mobile.png" class="img-fluid"/>
+                    </div>
+                    <div class="d-none d-lg-flex flex-column my-auto intro">
+                        <div class="flex-column align-self-center">
+                            <h1 class="header my-4">Make<br/>remote work</h1>
+                            <p class="copy">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+                            <button type="button" class="btn btn-dark mt-5">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-flex">
+                        <div class="d-flex align-items-center justify-content-between logos w-100">
+                            <img src="./images/client-databiz.svg" alt="Databiz logo"/>
+                            <img src="./images/client-audiophile.svg" alt="Audiophile logo"/>
+                            <img src="./images/client-meet.svg" alt="Meet logo"/>
+                            <img src="./images/client-maker.svg" alt="Maker logo"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-1 d-none d-xl-block"></div>
+                <div class="col-md-12 col-lg-5 col-xl-5 px-0">
+                    <div class="d-lg-none py-4">
+                        <div class="mx-3">
+                            <h1 class="header py-2">Make remote work</h1>
+                            <p class="copy">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+                            <button type="button" class="btn btn-dark mx-auto mt-4">Learn More</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-around mt-5 logos">
+                            <img src="./images/client-databiz.svg" alt="Databiz logo"/>
+                            <img src="./images/client-audiophile.svg" alt="Audiophile logo"/>
+                            <img src="./images/client-meet.svg" alt="Meet logo"/>
+                            <img src="./images/client-maker.svg" alt="Maker logo"/>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-flex">
+                        <img src="./images/image-hero-desktop.png" class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://linkedin.com/in/kkatlopez">Kat Lopez</a>.
+    </footer>
+    
 </body>
 </html>

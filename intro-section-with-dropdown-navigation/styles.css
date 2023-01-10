@@ -1,0 +1,144 @@
+:root {
+    --white: hsl(0, 0%, 98%);
+    --gray: hsl(0, 0%, 41%);
+    --black: hsl(0, 0%, 8%);
+}
+
+*,
+a,
+.nav-link,
+.dropdown-item,
+.btn {
+    color: var(--gray);
+}
+
+a:hover,
+.nav-link:hover,
+.dropdown-item:hover {
+    color: var(--black);
+}
+
+.btn {
+    padding: 10px 20px 10px 20px;
+    border-radius: 12px;
+}
+
+.btn:hover {
+    color: var(--black);
+    background: var(--white);
+}
+
+.btn-dark {
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+}
+
+body {
+    font-family: 'Epilogue', 'Arial', sans-serif;
+    font-weight: 400;
+    background-color: var(--white);
+}
+
+nav .offcanvas.offcanvas-end {
+    --bs-offcanvas-width: min(70vw) !important;
+}
+
+.dropdown-menu {
+    border: none;
+    filter: drop-shadow(5px 5px 10px #cfcfcf);
+    padding: 1rem 0.5rem;
+    border-radius: 12px;
+}
+
+.dropdown-menu > li {
+    padding: 4px 8px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.header {
+    text-align: center;
+    color: var(--black);
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.copy {
+    text-align: center;
+    line-height: 1.75rem;
+    min-width: 80%;
+}
+
+/* Medium devices */
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 1rem;
+    }
+    .offcanvas {
+        padding: 0 1rem;
+    }
+    .offcanvas-body {
+        color: var(--gray);
+    }
+    .dropdown-menu {
+        filter: none;
+        padding: 0;
+    }
+    .offcanvas-body .nav-item > a {
+        padding: 0.7rem 0;
+    }
+    .nav-buttons > .btn {
+        display: block;
+        width: 100%;
+    }
+    #column-1 {
+        padding: 0;
+    }
+    .header {
+        font-size: 36px;
+        text-align: center;
+    }
+    .logos > img {
+        width: 64px;
+    }
+}
+
+/* Large devices */
+@media (min-width: 992px) {
+    .navbar {
+        padding: 1.5rem;
+    }
+    .nav-buttons {
+        display: flex;
+    }
+    .header {
+        font-size: 64px;
+        text-align: left;
+        line-height: 5rem;
+    }
+    .copy {
+        text-align: left;
+        font-size: 18px;
+        line-height: 2rem;
+        min-width: 100%;
+    }
+    .header, .copy, .logos {
+        margin-right: 1rem;
+    }
+}
+
+/* Extra large devices */
+@media (min-width: 1200px) {
+    .header {
+        font-size: 80px;
+        text-align: left;
+        line-height: 6.5rem;
+    }
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
