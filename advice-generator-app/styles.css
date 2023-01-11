@@ -1,0 +1,52 @@
+:root {
+    --cyan: hsl(193, 38%, 86%);
+    --neon-green: hsl(150, 100%, 66%);
+    --blue: hsl(217, 19%, 38%);
+    --dark-gray-blue: hsl(217, 19%, 24%);
+    --dark-blue: hsl(218, 23%, 16%);
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--cyan);
+    font-family: "Manrope", "Arial", sans-serif;
+    text-align: center;
+}
+
+#advice-container {
+    background-color: var(--dark-gray-blue);
+    border-radius: 12px;
+    max-width: 600px;
+    padding: 4rem 2rem;
+    box-shadow: 0 0 20px 2px var(--dark-blue);
+}
+
+#header {
+    font-size: 14px;
+    color: var(--neon-green);
+    letter-spacing: 8px;
+    padding: 0.5rem;
+}
+
+#advice {
+    font-size: 28px;
+}
+
+.btn-container {
+    position: relative;
+}
+
+#reroll {
+    position: absolute;
+    top: calc(100% + 25px);
+    left: calc(50% - 32px);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--neon-green);
+}
+
+#reroll:hover {
+    background-color: var(--neon-green);
+    box-shadow: 0 0 20px 2px var(--neon-green);
+}
