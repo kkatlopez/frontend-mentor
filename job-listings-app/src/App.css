@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
+
+:root {
+    --dark-cyan: hsl(180, 29%, 50%);
+    --light-cyan-bg: hsl(180, 52%, 96%);
+    --light-cyan-filter: hsl(180, 31%, 95%);
+    --dark-gray-cyan: hsl(180, 8%, 52%);
+    --darkest-gray-cyan: hsl(180, 14%, 20%);
+    --white: #fff;
+}
+
+.App {
+  background-color: var(--light-cyan-bg);
+  padding: 0;
+  font-family: "League Spartan", "Arial", sans-serif;
+}
+
+.App-header {
+  background-color: var(--dark-cyan);
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+}
+
+.container-flex {
+    height: 100vh
+}
+
+.job-listing {
+    background-color: var(--white);
+    border-radius: 8px;
+}
+
+.job-company {
+    color: var(--dark-cyan);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.job-position {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.job-addl {
+    color: var(--dark-gray-cyan);
+    max-width: 216px;
+}
+
+.tag {
+    background-color: var(--light-cyan-bg);
+    color: var(--dark-cyan);
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tag:hover {
+    background-color: var(--dark-cyan);
+    color: var(--light-cyan-bg);
+}
