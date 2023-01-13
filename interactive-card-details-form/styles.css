@@ -1,0 +1,105 @@
+:root {
+    --red: hsl(0, 100%, 66%); /* Input error */
+    --white: hsl(0, 0%, 100%);
+    --light-violet: hsl(270, 3%, 87%);
+    --dark-violet: hsl(279, 6%, 55%);
+    --darker-violet: hsl(278, 68%, 11%);
+    --active-input1: hsl(249, 99%, 64%);
+    --active-input2: hsl(278, 94%, 30%);
+}
+
+body {
+    font-size: 18px;
+    font-family: 'Space Grotesk', 'Arial', sans-serif;
+}
+
+#graphic {
+    background-image: url('./images/bg-main-mobile.png');
+    padding: 2rem;
+    position: relative;
+    color: var(--white);
+    height: 240px;
+}
+
+.cc-back img {
+    margin-top: -0.5rem;
+    margin-left: 1.5rem;
+    width: 300px;
+    height: auto;
+}
+
+.cc-back .cc-sec-code {
+    position: absolute;
+    top: 98px;
+    left: 298px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.cc-front .cc-img {
+    position: absolute;
+    top: 7.3rem;
+    right: 4rem;
+    width: 300px;
+    height: auto;
+}
+
+.cc-front .cc-logo {
+    position: absolute;
+    z-index: 1;
+    width: 12%;
+    height: auto;
+    top: 144px;
+}
+
+.cc-front .cc-num {
+    position: absolute;
+    z-index: 1;
+    letter-spacing: 3px;
+    top: 204px;
+}
+
+.cc-front .cc-name-exp {
+    position: absolute;
+    z-index: 1;
+    letter-spacing: 1px;
+    top: 246px;
+    font-size: 10px;
+    width: 260px;
+}
+
+.cc-exp {
+    float: right;
+}
+
+#cc-form {
+    padding-top: 6rem;
+}
+
+#cc-form label {
+    color: var(--darker-violet);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+input.form-control {
+    font-size: 18px;
+}
+
+#cc-form .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--light-violet);
+    opacity: 1; /* Firefox */
+}   
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--light-violet);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--light-violet);
+}
+
+.btn#cc-submit-form {
+    background-color: var(--darker-violet);
+    color: var(--white);
+    margin-top: 2rem;
+}
