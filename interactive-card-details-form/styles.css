@@ -147,6 +147,7 @@ input.form-control {
     color: var(--dark-violet);
 }
 
+/* Large devices */
 @media (min-width: 992px) {
     #graphic {
         background-image: url("./images/bg-main-desktop.png");
@@ -229,6 +230,7 @@ input.form-control {
     }
 }
 
+/* XL devices */
 @media (min-width: 1400px) {
     .cc-front .cc-img,
     .cc-back .cc-img {
@@ -239,7 +241,7 @@ input.form-control {
         position: relative;
         width: 460px;
         top: -180px;
-        left: -360px;
+        left: -450px;
     }
 
     .cc-front .cc-logo {
@@ -268,7 +270,7 @@ input.form-control {
         position: relative;
         width: 460px;
         top: 180px;
-        left: 260px;
+        left: 90px;
     }
 
     .cc-back .cc-sec-code {
@@ -287,6 +289,15 @@ input.form-control {
     #cc-submit-form,
     #continue {
         width: 500px;
+    }
+}
+
+@media (min-width: 1650px) {
+    .cc-front {
+        left: -360px;
+    }
+    .cc-back {
+        left: 260px;
     }
 }
 
