@@ -6,6 +6,8 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
     <script src="app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,52 +26,61 @@
 <body>
     <div id="main" class="container-fluid">
         <div class="row">
-            <div class="d-flex flex-column col-12 col-md" id="graphic">
-                <div class="cc-back">
-                    <img src="./images/bg-card-back.png" alt="Back of credit card" class="img-fluid cc-img"/>
-                    <span class="cc-sec-code">000</span>
-                </div>
-                <div class="cc-front">
-                    <img src="./images/card-logo.svg" alt="Card logo" class="cc-logo"/>
-                    <span class="cc-num">0000 0000 0000 0000</span>
-                    <div class="cc-name-exp">
-                        <span class="cc-name">JANE APPLESEED</span>
-                        <span class="cc-exp"><span class="cc-exp-month">00</span>/<span class="cc-exp-year">00</span></span>
+            <div class="d-flex flex-column col-12 col-lg-4 col-xl-3" id="graphic">
+                <div class="cc-images m-auto">
+                    <div class="cc-back">
+                        <img src="./images/bg-card-back.png" alt="Back of credit card" class="img-fluid cc-img"/>
+                        <span class="cc-sec-code">000</span>
                     </div>
-                    <img src="./images/bg-card-front.png" alt="Front of credit card" class="img-fluid cc-img"/>
+                    <div class="cc-front">
+                        <img src="./images/card-logo.svg" alt="Card logo" class="cc-logo"/>
+                        <span class="cc-num text-nowrap">0000 0000 0000 0000</span>
+                        <div class="cc-name-exp">
+                            <span class="cc-name">JANE APPLESEED</span>
+                            <span class="cc-exp"><span class="cc-exp-month">00</span>/<span class="cc-exp-year">00</span></span>
+                        </div>
+                        <img src="./images/bg-card-front.png" alt="Front of credit card" class="img-fluid cc-img"/>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-md px-4">
+            <div class="col-12 col-lg col-xl px-4 form-container">
                 <form id="cc-form">
                     <div class="mb-3">
                         <label for="form-cc-name" class="form-label">CARDHOLDER NAME</label>
-                        <input type="text" class="form-control" id="form-cc-name" aria-describedby="form-ccName" placeholder="e.g. Jane Appleseed">
+                        <input type="text" class="form-control" name="name" id="form-cc-name" aria-describedby="form-ccName" placeholder="e.g. Jane Appleseed">
                     </div>
                     <div class="mb-3">
                         <label for="form-cc-num" class="form-label">CARD NUMBER</label>
-                        <input type="text" class="form-control" id="form-cc-num" aria-describedby="form-ccNum" placeholder="e.g. 1234 5678 9123 0000" minlength="16" maxlength="16">
+                        <input type="text" class="form-control" name="cardnum" id="form-cc-num" aria-describedby="form-ccNum" placeholder="e.g. 1234 5678 9123 0000" minlength="19" maxlength="19">
                     </div>
                     <div class="row mb-3">
                         <div class="col-6">
-                            <label for="form-cc-exp" class="form-label">EXP. DATE (MM/YY)</label>
-                            <div class="col d-flex" id="form-cc-exp">
-                                <div class="col me-1">
-                                    <input type="text" class="form-control" id="form-cc-exp-month" aria-describedby="ccName" placeholder="MM">
-                                </div>
-                                <div class="col ms-1">
-                                    <input type="text" class="form-control" id="form-cc-exp-year" aria-describedby="ccName" placeholder="YY">
-                                </div>
+                            <label class="form-label">EXP. DATE</label>
+                            <div class="input-group" id="form-cc-exp" name="expdate">
+                                <input type="text" class="form-control exp col-6" name="expmonth" id="form-cc-exp-month" placeholder="MM" minlength="2" maxlength="2">
+                                <span>&nbsp;&nbsp;</span>
+                                <input type="text" class="form-control exp col-6" name="expyear" id="form-cc-exp-year" placeholder="YY" minlength="2" maxlength="2">
                             </div>
                         </div>
                         <div class="col-6">
                             <label for="form-cc-sec-code" class="form-label">CVC</label>
-                            <input type="text" class="form-control" id="form-cc-sec-code" aria-describedby="ccName" placeholder="e.g. 123" minlength="3" maxlength="4">
+                            <input type="text" class="form-control" name="cvc" id="form-cc-sec-code" aria-describedby="ccName" placeholder="e.g. 123" minlength="3" maxlength="4">
                         </div>
                     </div>
-                    <div class="row mx-0">
-                        <button class="btn btn-lg" id="cc-submit-form">Confirm</button>
-                    </div>
-                  </form>
+                </form>
+                <div class="row d-flex justify-content-center mx-0">
+                    <button class="btn btn-lg" id="cc-submit-form">Confirm</button>
+                </div>
+            </div>
+            <div class="col-12 col-lg col-xl d-flex flex-column justify-content-center d-none" id="success">
+                <img src="./images/icon-complete.svg" class="img-fluid mx-auto" alt="Checkmark" />
+                <div class="my-3">
+                    <h1 class="text-center">THANK YOU!</h1>
+                    <p class="text-center">We've added your card details</p>
+                </div>
+                <div class="row d-flex justify-content-center px-4">
+                    <button class="btn btn-lg" id="continue">Continue</button>
+                </div>
             </div>
         </div>
     </div>
