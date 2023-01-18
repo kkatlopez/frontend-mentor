@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Vercel](https://your-solution-url.com)
-- Live Site URL: [GitHub](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/kkatlopez/frontend-mentor/tree/main/interactive-card-details-form)
+- Live Site URL: [Vercel](https://frontend-mentor-kkatlopez.vercel.app/interactive-card-details-form/index.html)
 
 ## My process
 
