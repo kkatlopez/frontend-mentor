@@ -289,3 +289,15 @@ input.form-control {
         width: 500px;
     }
 }
+
+.attribution { 
+    font-size: 11px;
+    text-align: center; 
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+.attribution a { color: hsl(228, 45%, 44%); }
