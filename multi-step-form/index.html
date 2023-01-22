@@ -31,6 +31,7 @@
                 <span class="step">3</span>
                 <span class="step">4</span>
             </div>
+            <!-- STEP 1 -->
             <div class="row tab">
                 <div class="card p-3">
                     <div class="card-body">
@@ -53,34 +54,107 @@
                     </div>
                 </div>
             </div>
+            <!-- STEP 2 -->
             <div class="row tab d-none">
                 <div class="card p-3">
                     <div class="card-body">
                         <h5 class="card-title">Select your plan</h5>
                         <p class="card-text">You have the option of monthly or yearly billing.</p>
-                        <div id="step2">
+                        <form id="step2">
                             <div class="form-check mb-3 checked">
-                                <input class="form-check-input plan" type="radio" name="billing" id="arcade" checked>
-                                <label class="form-check-label" for="arcade">
-                                    <img src="./assets/images/icon-arcade.svg" alt="Arcade icon" />
-                                    Arcade<br><span class="price">$9/mo</span>
-                                </label>                  
+                                <input class="form-check-input plan" type="radio" name="billing" id="arcade" value="9" checked>
+                                <label class="form-check-label row d-flex" for="arcade">
+                                    <div class="col-3">
+                                        <img src="./assets/images/icon-arcade.svg" alt="Arcade icon" />
+                                    </div>
+                                    <div class="col">
+                                        <p class="mb-0">Arcade</p>
+                                        <span class="price" id="arcade-price">$9/mo</span>
+                                        <p class="yearly-price mb-0"></p>
+                                    </div>
+                                </label>
                             </div>
                             <div class="form-check mb-3">
-                                <input class="form-check-input plan" type="radio" name="billing" id="advanced">
-                                <label class="form-check-label" for="advanced">
-                                    <img src="./assets/images/icon-advanced.svg" alt="Arcade icon" />
-                                    Advanced<br/><span class="price">$12/mo</span>
-                                </label>                  
+                                <input class="form-check-input plan" type="radio" name="billing" id="advanced" value="12">
+                                <label class="form-check-label row d-flex" for="advanced">
+                                    <div class="col-3">
+                                        <img src="./assets/images/icon-advanced.svg" alt="Arcade icon" />
+                                    </div>
+                                    <div class="col">
+                                        <p class="mb-0">Advanced</p>
+                                        <span class="price" id="advanced-price">$12/mo</span>
+                                        <p class="yearly-price mb-0"></p>
+                                    </div>
+                                </label>
                             </div>
                             <div class="form-check mb-3">
-                                <input class="form-check-input plan" type="radio" name="billing" id="pro">
-                                <label class="form-check-label" for="pro">
-                                    <img src="./assets/images/icon-pro.svg" alt="Arcade icon" />
-                                    Pro<br/><span class="price">$15/mo</span>
-                                </label>                  
+                                <input class="form-check-input plan" type="radio" name="billing" id="pro" value="15">
+                                <label class="form-check-label row d-flex align-items-center" for="pro">
+                                    <div class="col-3">
+                                        <img src="./assets/images/icon-pro.svg" alt="Arcade icon" />
+                                    </div>
+                                    <div class="col">
+                                        <p class="mb-0">Pro</p>
+                                        <span class="price" id="pro-price">$15/mo</span>
+                                        <p class="yearly-price mb-0"></p>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center plan-switch">
+                                <div class="form-text selected-plan" data-type="monthly">Monthly</div>
+                                <div class="form-check form-switch form-check-inline">
+                                    <input id="plan-type" class="form-check-input form-check-inline" type="checkbox" name="plan">
+                                </div>
+                                <div class="form-text" data-type="yearly">Yearly</div>
                             </div>
                         </div>
+                    </form>
+                </div>
+            </div>
+            <!-- STEP 3 -->
+            <div class="row tab d-none">
+                <div class="card p-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Pick add-ons</h5>
+                        <p class="card-text">Add-ons help enhance your gaming experience.</p>
+                        <form id="step3">
+                            <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
+                                <div class="col-9">
+                                    <input class="form-check-input addon" type="checkbox" value="1" id="addon-online" name="addon">
+                                    <div class="ps-2">
+                                        <label class="form-check-label addon-name" for="addon-online">Online service</label>
+                                        <p class="mb-0 addon-desc">Access to multiplayer games</p>
+                                    </div>
+                                </div>
+                                <div class="col-3 pe-0">
+                                    <span class="addon-price">+$1/mo</span>
+                                </div>
+                            </div>
+                            <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
+                                <div class="col-9">
+                                    <input class="form-check-input addon" type="checkbox" value="2" id="addon-storage" name="addon">
+                                    <div class="ps-2">
+                                        <label class="form-check-label addon-name" for="addon-storge">Larger storage</label>
+                                        <p class="mb-0 addon-desc">Extra 1TB of cloud save</p>
+                                    </div>
+                                </div>
+                                <div class="col-3 pe-0">
+                                    <span class="addon-price">+$2/mo</span>
+                                </div>
+                            </div>
+                            <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
+                                <div class="col-9">
+                                    <input class="form-check-input addon" type="checkbox" value="2" id="addon-prof" name="addon">
+                                    <div class="ps-2">
+                                        <label class="form-check-label addon-name" for="addon-prof">Customizable profile</label>
+                                        <p class="mb-0 addon-desc">Custom theme on your profile</p>
+                                    </div>
+                                </div>
+                                <div class="col-3 pe-0">
+                                    <span class="addon-price">+$2/mo</span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

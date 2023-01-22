@@ -77,19 +77,19 @@ form .form-control::placeholder {
 .tab {
     align-self: center;
     background-color: var(--magnolia);
-    height: 65vh;
+    height: 72vh;
     max-width: 100vw;
 }
 
 .tab .card {
     background-color: var(--white);
     max-width: 88%;
-    height: 50vh;
+    /* height: 50vh; */
     align-self: center;
     margin: auto;
     border: 0;
-    position: relative;
-    top: -134px;
+    /* position: absolute; */
+    /* top: -134px; */
     border-radius: 12px;
 }
 
@@ -112,7 +112,7 @@ form#step2 img {
 .tab .card .form-check {
     border: 1px solid var(--light-gray);
     border-radius: 8px;
-    padding: 0.9rem;
+    padding: 0.65rem 0.75rem
 }
 
 .form-check-label {
@@ -125,11 +125,74 @@ form#step2 img {
 
 .tab .form-check.checked {
     border: 1px solid var(--purple-blue);
-    background-color: rgba(var(--purple-blue), 0.7);
+    background-color: var(--alabaster);
 }
 
 .form-check-label .price {
     color: var(--gray);
     font-weight: 400;
     font-size: 14px;
+}
+
+.plan-switch {
+    /* border: 1px solid var(--light-gray); */
+    border-radius: 8px;
+    background-color: var(--magnolia);
+    height: 48px;
+}
+
+.tab .card .form-check.form-switch {
+    border: none;
+    padding: 0;
+    margin: 3px 0px 0 52px;
+}
+
+#plan-type.form-check-input {
+    /* width: 3em !important; */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='4' fill='white'/%3e%3c/svg%3e") !important;
+}
+
+#plan-type.form-check-input,
+#plan-type.form-check-input:checked {
+    background-color: var(--blue);
+    border: 3px solid var(--blue);
+}
+
+.plan-switch .form-text {
+    font-weight: 700;
+    color: var(--gray);
+}
+
+.plan-switch .form-text.selected-plan {
+    color: var(--blue);
+}
+
+input[type="radio"] {
+    visibility: hidden;
+}
+
+p.yearly-price {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* STEP 3 */
+
+.form-check .addon-desc {
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.form-check .addon-name {
+    white-space: nowrap;
+}
+
+.form-check .addon {
+    margin-top: 0.75rem;
+}
+
+.form-check .addon-price {
+    color: var(--purple-blue);
+    font-size: 12px;
 }
