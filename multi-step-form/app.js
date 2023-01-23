@@ -8,8 +8,9 @@ $(document).ready(function() {
     const planToggle = $(".form-switch input");
     const planPayment = planToggle.parent();    
     var planType = $(".plan-switch").find(".selected-plan").data("type");
+    const addons = $("input.addon");
 
-    // -- -- STEP 2 -- -- //
+    // Handle which is price plan is selected
     billing.on("change", function() {
         var selected = $(this);
         for (var i = 0; i < billing.length; i++) {
@@ -37,31 +38,53 @@ $(document).ready(function() {
             // Pro price
             $("span#pro-price").text("$150/yr");
             $("input#pro").val("150");
+            
+            // Online services price
+            $("span#online-price").text("+$10/yr");
+            $("input#addon-online").val("10");
+            // Larger storage price
+            $("span#storage-price").text("+$20/yr");
+            $("input#addon-storage").val("20");
+            // Customizable profile price
+            $("span#prof-price").text("+$20/yr");
+            $("input#addon-prof").val("20");
+        
         // If user selected montly plan:
         } else {
             $("p.yearly-price").text("");
             // Arcade price
-            $("span#arcade-price").text("$9");
+            $("span#arcade-price").text("$9/mo");
             $("input#arcade").val("9");
             // Advanced price
-            $("span#advanced-price").text("$12");
+            $("span#advanced-price").text("$12/mo");
             $("input#advanced").val("12");
             // Pro price
-            $("span#pro-price").text("$15");
+            $("span#pro-price").text("$15/mo");
             $("input#pro").val("15");
+
+            // Online services price
+            $("span#online-price").text("+$1/mo");
+            $("input#addon-online").val("1");
+            // Larger storage price
+            $("span#storage-price").text("+$2/mo");
+            $("input#addon-storage").val("2");
+            // Customizable profile price price
+            $("span#prof-price").text("+$2/mo");
+            $("input#addon-prof").val("2");
         }
     });
 
-    // -- -- STEP 3 -- -- //
-    console.log(formData);
-    if (formData) {
-        if (formData.plan == monthly) {
-            console.log("monthly")
-        } else {
-            console.log("yearly");
+    addons.on("click", function() {
+        for (var i = 0; i < addons.length; i++) {
+            if (addons.eq(i).is(":checked")) {
+                addons.eq(i).parent().parent().addClass("checked");
+            } else {
+                addons.eq(i).parent().parent().removeClass("checked");
+            }
         }
-    }
+    });
 
+    // -- -- FORM CONTROLLERS -- -- //
     var currentTab = 0;
     showTab(currentTab);
 
@@ -75,7 +98,7 @@ $(document).ready(function() {
         }
         // Show submit on last step
         if (n == (tabs.length - 1)) {
-            next.text("Submit");
+            next.text("Confirm");
         } else {
             next.text("Next Step")
         }
@@ -106,11 +129,24 @@ $(document).ready(function() {
     // Convert form data into JSON for storage
     function getFormData() {
         var formData = $("form").serializeArray();
-        console.log(formData);
         var jsonArray = {};
+        var addonPrice = 0;
+        var billingPrice = 0;
         for (var i = 0; i < formData.length; i++) {
-            jsonArray[formData[i]['name']] = formData[i]['value'];
+            // Add add-on prices together
+            if (formData[i]['name'] == "addon") {
+                var addon = parseInt(formData[i]['value']);
+                addonPrice += addon;
+                jsonArray[formData[i]["name"]] = addonPrice;
+            // Convert billing price to int
+            } else if (formData[i]['name'] == "billing") {
+                billingPrice = parseInt(formData[i]['value']);
+                jsonArray[formData[i]['name']] = billingPrice;
+            } else {
+                jsonArray[formData[i]['name']] = formData[i]['value'];
+            }
         }
+        jsonArray["total"] = addonPrice + billingPrice;
         return jsonArray;
     }
 
@@ -124,10 +160,53 @@ $(document).ready(function() {
             formData = JSON.parse(formData);
             // Change plan in formData object
             if ("plan" in formData) {
-                formData.plan = "yearly";
-
+                formData.plan = "Yearly";
+                formData.planAbbr = "/yr";
+                formData.planAbbr2 = "per year";
             } else {
-                formData.plan = "monthly";
+                formData.plan = "Monthly";
+                formData.planAbbr = "/mo";
+                formData.planAbbr2 = "per month";
+            }
+        }
+        $("p#total-type").text("Arcade (" + formData.plan + ")");
+        $("p#total-billing-price").text("$" + formData.billing + formData.planAbbr);
+        $("p#grandtotal").text("Total (" + formData.planAbbr2 + ")");
+        $("p#grandtotal-price").text("$" + formData.total + formData.planAbbr);
+
+        for (var i = 0; i < addons.length; i++) {
+            if (formData.plan == "Monthly") {
+                if (addons.eq(i).is(":checked")) {
+                    let addonData = addons.eq(i).data("addon");
+                    if (addonData == "online") {
+                        $("p#total-online").text("Online service");
+                        $("p#total-online-price").text("+$1/mo");
+                    }
+                    if (addonData == "storage") {
+                        $("p#total-storage").text("Larger storage");
+                        $("p#total-storage-price").text("+$2/mo");
+                    }
+                    if (addonData == "prof") {
+                        $("p#total-prof").text("Customizable profile");
+                        $("p#total-prof-price").text("+$2/mo");
+                    }
+                }
+            } else {
+                if (addons.eq(i).is(":checked")) {
+                    let addonData = addons.eq(i).data("addon");
+                    if (addonData == "online") {
+                        $("p#total-online").text("Online service");
+                        $("p#total-online-price").text("+$10/yr");
+                    }
+                    if (addonData == "storage") {
+                        $("p#total-storage").text("Larger storage");
+                        $("p#total-storage-price").text("+$20/yr");
+                    }
+                    if (addonData == "prof") {
+                        $("p#total-prof").text("Customizable profile");
+                        $("p#total-prof-price").text("+$20/yr");
+                    }
+                }
             }
         }
         console.log(formData);

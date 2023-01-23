@@ -119,42 +119,90 @@
                         <p class="card-text">Add-ons help enhance your gaming experience.</p>
                         <form id="step3">
                             <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
-                                <div class="col-9">
-                                    <input class="form-check-input addon" type="checkbox" value="1" id="addon-online" name="addon">
-                                    <div class="ps-2">
-                                        <label class="form-check-label addon-name" for="addon-online">Online service</label>
-                                        <p class="mb-0 addon-desc">Access to multiplayer games</p>
-                                    </div>
-                                </div>
-                                <div class="col-3 pe-0">
-                                    <span class="addon-price">+$1/mo</span>
-                                </div>
-                            </div>
-                            <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
-                                <div class="col-9">
-                                    <input class="form-check-input addon" type="checkbox" value="2" id="addon-storage" name="addon">
-                                    <div class="ps-2">
-                                        <label class="form-check-label addon-name" for="addon-storge">Larger storage</label>
-                                        <p class="mb-0 addon-desc">Extra 1TB of cloud save</p>
-                                    </div>
-                                </div>
-                                <div class="col-3 pe-0">
-                                    <span class="addon-price">+$2/mo</span>
+                                <div class="d-flex pe-0">
+                                    <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="1" id="addon-online" name="addon" data-addon="online">
+                                    <label class="form-check-label row addon-name" for="addon-online">
+                                        <div class="col-9">
+                                            <span>Online service</span>
+                                            <p class="mb-0 addon-desc">Access to multiplayer games</p>
+                                        </div>
+                                        <div class="col-3 d-flex pe-0">
+                                            <span class="my-auto addon-price" id="online-price">+$1/mo</span>
+                                        </div>
+                                    </label>
                                 </div>
                             </div>
                             <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
-                                <div class="col-9">
-                                    <input class="form-check-input addon" type="checkbox" value="2" id="addon-prof" name="addon">
-                                    <div class="ps-2">
-                                        <label class="form-check-label addon-name" for="addon-prof">Customizable profile</label>
-                                        <p class="mb-0 addon-desc">Custom theme on your profile</p>
-                                    </div>
+                                <div class="d-flex pe-0">
+                                    <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="2" id="addon-storage" name="addon" data-addon="storage">
+                                    <label class="form-check-label row addon-name" for="addon-storage">
+                                        <div class="col-9">
+                                            <span>Larger storage</span>
+                                            <p class="mb-0 addon-desc">Extra 1TB of cloud save</p>
+                                        </div>
+                                        <div class="col-3 d-flex pe-0">
+                                            <span class="my-auto addon-price" id="storage-price">+$2/mo</span>
+                                    </label>
                                 </div>
-                                <div class="col-3 pe-0">
-                                    <span class="addon-price">+$2/mo</span>
+                                </div>
+                            </div>
+                            <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
+                                <div class="d-flex pe-0">
+                                    <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="2" id="addon-prof" name="addon" data-addon="prof">
+                                    <label class="form-check-label row addon-name" for="addon-prof">
+                                        <div class="col-9">
+                                            <span>Customizable profile</span>
+                                            <p class="mb-0 addon-desc">Custom theme on your profile</p>
+                                        </div>
+                                        <div class="col-3 d-flex pe-0">
+                                            <span class="my-auto addon-price" id="prof-price">+$2/mo</span>
+                                        </div>
+                                    </label>
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <!-- STEP 4 -->
+            <div class="row tab d-none">
+                <div class="card p-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Finishing up</h5>
+                        <p class="card-text">Double-check everything looks OK before confirming.</p>
+                        <div class="total-summary-container p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <p class="mb-0" id="total-type"></p>
+                                </div>
+                                <div class="col">
+                                    <p class="mb-0 price" id="total-billing-price"></p>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="total-summary-val row">
+                                <div class="col-8">
+                                    <p id="total-online"></p>
+                                    <p id="total-storage"></p>
+                                    <p id="total-prof"></p>
+                                </div>
+                                <div class="col">
+                                    <p id="total-online-price" class="price"></p>
+                                    <p id="total-storage-price" class="price"></p>
+                                    <p id="total-prof-price" class="price"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="total-container pt-3 px-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <p id="grandtotal"></p>
+                                </div>
+                                <div class="col">
+                                    <p id="grandtotal-price"></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

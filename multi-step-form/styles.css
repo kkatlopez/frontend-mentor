@@ -77,19 +77,18 @@ form .form-control::placeholder {
 .tab {
     align-self: center;
     background-color: var(--magnolia);
-    height: 72vh;
+    height: 66vh;
     max-width: 100vw;
 }
 
 .tab .card {
     background-color: var(--white);
-    max-width: 88%;
-    /* height: 50vh; */
-    align-self: center;
-    margin: auto;
+    max-width: 90%;
+    align-self: start;
+    margin: 0 auto;
     border: 0;
-    /* position: absolute; */
-    /* top: -134px; */
+    position: relative;
+    top: -70px;
     border-radius: 12px;
 }
 
@@ -105,6 +104,11 @@ form .form-control::placeholder {
 }
 
 /* STEP 2 */
+#step2 div.form-check:hover,
+#step3 div.form-check:hover {
+    border: 1px solid var(--purple-blue);
+}
+
 form#step2 img {
     margin-right: 0.5rem;
 }
@@ -177,22 +181,65 @@ p.yearly-price {
 }
 
 /* STEP 3 */
+form#step3 .form-check-input:checked {
+    background-color: var(--purple-blue);
+    border-color: 1px solid var(--purple-blue);
+}
 
-.form-check .addon-desc {
+.form-check-label .addon-desc {
     font-size: 12px;
     font-weight: 400;
     white-space: nowrap;
+    color: var(--gray);
 }
 
-.form-check .addon-name {
+.form-check-label .addon-name {
     white-space: nowrap;
 }
 
-.form-check .addon {
+.form-check-label .addon {
     margin-top: 0.75rem;
 }
 
-.form-check .addon-price {
+.form-check-label .addon-price {
     color: var(--purple-blue);
     font-size: 12px;
+    font-weight: 400;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.total-summary-container {
+    background-color: var(--alabaster);
+    border-radius: 6px;
+}
+
+.total-summary-container .price {
+    color: var(--blue);
+    text-align: right;
+}
+
+.total-summary-container #total-billing-price.price {
+    font-weight: 600;
+}
+
+.total-summary-container p,
+.total-container p {
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+
+p#total-type {
+    color: var(--blue);
+    font-weight: 700;
+}
+
+p#grandtotal-price {
+    color: var(--purple-blue);
+    font-weight: 700;
+    text-align: right;
+}
+
+hr {
+    margin: 0.75rem 0;
 }
