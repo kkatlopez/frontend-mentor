@@ -51,6 +51,11 @@ form input.form-control {
     font-size: 15px;
 }
 
+form input.form-control:focus {
+    box-shadow: none;
+    border-color: var(--purple-blue);
+}
+
 form .form-control::placeholder {
     color: var(--gray);
 }
@@ -242,4 +247,15 @@ p#grandtotal-price {
 
 hr {
     margin: 0.75rem 0;
+}
+
+label.error {
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 600;
+    float: right;
+}
+
+input.error {
+    border: 1px solid var(--red);
 }

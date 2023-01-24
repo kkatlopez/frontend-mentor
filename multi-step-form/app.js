@@ -1,5 +1,9 @@
 $(document).ready(function() {
     var formData;
+    const step1 = $("form#step1");
+    const name = $("input#form-name");
+    const email = $("input#form-email")
+    const phone = $("input#form-phone");
     const next = $(".next");
     const prev = $(".prev");
     const tabs = $(".tab");
@@ -10,6 +14,8 @@ $(document).ready(function() {
     var planType = $(".plan-switch").find(".selected-plan").data("type");
     const addons = $("input.addon");
 
+    // -- -- FORM CONTROLLERS -- -- //
+    
     // Handle which is price plan is selected
     billing.on("change", function() {
         var selected = $(this);
@@ -74,6 +80,7 @@ $(document).ready(function() {
         }
     });
 
+    // Add class on click of addon
     addons.on("click", function() {
         for (var i = 0; i < addons.length; i++) {
             if (addons.eq(i).is(":checked")) {
@@ -84,10 +91,11 @@ $(document).ready(function() {
         }
     });
 
-    // -- -- FORM CONTROLLERS -- -- //
+    // -- -- APP CONTROLLERS -- -- //
     var currentTab = 0;
     showTab(currentTab);
 
+    // Figure out which tab to hide/show
     function showTab(n) {
         tabs.eq(currentTab).removeClass("d-none");
         // Determine if "Go Back" button needs to be shown
@@ -150,10 +158,42 @@ $(document).ready(function() {
         return jsonArray;
     }
 
+    step1.validate({
+        rules: {
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                required: true,
+                phoneUS: true
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.insertAfter(element.prev());
+        },
+        messages: {
+            name: "This field is required",
+            email: {
+                required: "This field is required",
+                email: "Invalid email address"
+            },
+            phone: {
+                required: "This field is required",
+                phoneUS: "Invalid US phone number"
+            }
+        },
+        onkeyup: false,
+        onclick: false
+    });
+
     // Handle next step click
     next.on("click", function() {
         formData = JSON.stringify(getFormData());
-        nextPrev(next);
+        if (step1.valid() || currentTab != 0) {
+            nextPrev(next);
+        }
         // Save data in session
         if (window.sessionStorage) {
             sessionStorage.setItem('formData', JSON.stringify(formData));
@@ -169,15 +209,20 @@ $(document).ready(function() {
                 formData.planAbbr2 = "per month";
             }
         }
+
+        // Step 4 values
         $("p#total-type").text("Arcade (" + formData.plan + ")");
         $("p#total-billing-price").text("$" + formData.billing + formData.planAbbr);
         $("p#grandtotal").text("Total (" + formData.planAbbr2 + ")");
         $("p#grandtotal-price").text("$" + formData.total + formData.planAbbr);
 
+        // Determine which addons are shown
         for (var i = 0; i < addons.length; i++) {
+            // Monthly payment plan
             if (formData.plan == "Monthly") {
                 if (addons.eq(i).is(":checked")) {
                     let addonData = addons.eq(i).data("addon");
+                    $("hr").removeClass("d-none");
                     if (addonData == "online") {
                         $("p#total-online").text("Online service");
                         $("p#total-online-price").text("+$1/mo");
@@ -190,10 +235,14 @@ $(document).ready(function() {
                         $("p#total-prof").text("Customizable profile");
                         $("p#total-prof-price").text("+$2/mo");
                     }
+                } else {
+                    $("hr").addClass("d-none");
                 }
+            // Yearly payment plan
             } else {
                 if (addons.eq(i).is(":checked")) {
                     let addonData = addons.eq(i).data("addon");
+                    $("hr").removeClass("d-none");
                     if (addonData == "online") {
                         $("p#total-online").text("Online service");
                         $("p#total-online-price").text("+$10/yr");
@@ -206,10 +255,11 @@ $(document).ready(function() {
                         $("p#total-prof").text("Customizable profile");
                         $("p#total-prof-price").text("+$20/yr");
                     }
+                } else {
+                    $("hr").addClass("d-none");
                 }
             }
         }
-        console.log(formData);
     });
 
     // Handle back click
