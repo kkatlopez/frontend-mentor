@@ -27,192 +27,229 @@
 </head>
 <body>
     <main>
-        <div class="container-fluid d-flex flex-column vh-100 px-0">
-            <div class="d-flex align-items-center justify-content-center steps">
-                <span class="step">1</span>
-                <span class="step">2</span>
-                <span class="step">3</span>
-                <span class="step">4</span>
-            </div>
-            <!-- STEP 1 -->
-            <div class="row tab">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Personal info</h5>
-                        <p class="card-text">Please provide your name, email address, and phone number.</p>
-                        <form id="step1" class="needs-validation">
-                            <div class="mb-3">
-                                <label for="form-name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" id="form-name" placeholder="e.g. Stephen King" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="form-email" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" id="form-email" placeholder="e.g. stephenking@lorem.com" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="form-phone" class="form-label">Phone Number</label>
-                                <input type="text" name="phone" class="form-control" id="form-phone" aria-describedby="emailHelp" placeholder="e.g. +1 234 567 8900" required>
-                            </div>                            
-                        </form>
+        <div class="container-fluid d-flex vh-100 px-0">
+            <div class="row d-flex m-auto content">
+                <div class="col-12 col-md-4 col-lg-3 col-xl-2 d-flex steps">
+                    <span class="step-container row">
+                        <span class="col-12 col-md-3 step">1</span>
+                        <span class="col-md-9 d-none d-md-inline d-flex align-self-center">
+                            <div class="step-num">STEP 1</div>
+                            <div class="step-desc">YOUR INFO</div>
+                        </span>
+                    </span>
+                    <span class="step-container row">
+                        <span class="col-12 col-md-3 step">2</span>
+                        <span class="col-md-9 d-none d-md-inline d-flex align-self-center">
+                            <div class="step-num">STEP 2</div>
+                            <div class="step-desc">SELECT PLAN</div>
+                        </span>
+                    </span>
+                    <span class="step-container row">
+                        <span class="col-12 col-md-3 step">3</span>
+                        <span class="col-md-9 d-none d-md-inline d-flex align-self-center">
+                            <div class="step-num">STEP 3</div>
+                            <div class="step-desc">ADD-ONS</div>
+                        </span>
+                    </span>
+                    <span class="step-container row">
+                        <span class="col-12 col-md-3 step">4</span>
+                        <span class="col-md-9 d-none d-md-inline d-flex align-self-center">
+                            <div class="step-num">STEP 4</div>
+                            <div class="step-desc">SUMMARY</div>
+                        </span>
+                    </span>
+                </div>
+                <!-- STEP 1 -->
+                <div class="tab col-12 col-md col-lg">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Personal info</h5>
+                            <p class="card-text">Please provide your name, email address, and phone number.</p>
+                            <form id="step1" class="row">
+                                <div class="mb-3">
+                                    <label for="form-name" class="form-label">Name</label>
+                                    <input type="text" name="name" class="form-control" id="form-name" placeholder="e.g. Stephen King" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="form-email" class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control" id="form-email" placeholder="e.g. stephenking@lorem.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="form-phone" class="form-label">Phone Number</label>
+                                    <input type="text" name="phone" class="form-control" id="form-phone" aria-describedby="emailHelp" placeholder="e.g. +1 234 567 8900" required>
+                                </div>                            
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- STEP 2 -->
-            <div class="row tab d-none">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Select your plan</h5>
-                        <p class="card-text">You have the option of monthly or yearly billing.</p>
-                        <form id="step2">
-                            <div class="form-check mb-3 checked">
-                                <input class="form-check-input plan" type="radio" name="billing" id="arcade" value="9" checked>
-                                <label class="form-check-label row d-flex" for="arcade">
-                                    <div class="col-3">
-                                        <img src="./assets/images/icon-arcade.svg" alt="Arcade icon" />
-                                    </div>
-                                    <div class="col">
-                                        <p class="mb-0">Arcade</p>
-                                        <span class="price" id="arcade-price">$9/mo</span>
-                                        <p class="yearly-price mb-0"></p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input plan" type="radio" name="billing" id="advanced" value="12">
-                                <label class="form-check-label row d-flex" for="advanced">
-                                    <div class="col-3">
-                                        <img src="./assets/images/icon-advanced.svg" alt="Arcade icon" />
-                                    </div>
-                                    <div class="col">
-                                        <p class="mb-0">Advanced</p>
-                                        <span class="price" id="advanced-price">$12/mo</span>
-                                        <p class="yearly-price mb-0"></p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input plan" type="radio" name="billing" id="pro" value="15">
-                                <label class="form-check-label row d-flex align-items-center" for="pro">
-                                    <div class="col-3">
-                                        <img src="./assets/images/icon-pro.svg" alt="Arcade icon" />
-                                    </div>
-                                    <div class="col">
-                                        <p class="mb-0">Pro</p>
-                                        <span class="price" id="pro-price">$15/mo</span>
-                                        <p class="yearly-price mb-0"></p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-center plan-switch">
-                                <div class="form-text selected-plan" data-type="monthly">Monthly</div>
-                                <div class="form-check form-switch form-check-inline">
-                                    <input id="plan-type" class="form-check-input form-check-inline" type="checkbox" name="plan">
-                                </div>
-                                <div class="form-text" data-type="yearly">Yearly</div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- STEP 3 -->
-            <div class="row tab d-none">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Pick add-ons</h5>
-                        <p class="card-text">Add-ons help enhance your gaming experience.</p>
-                        <form id="step3">
-                            <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
-                                <div class="d-flex pe-0">
-                                    <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="1" id="addon-online" name="addon" data-addon="online">
-                                    <label class="form-check-label row addon-name" for="addon-online">
-                                        <div class="col-9">
-                                            <span>Online service</span>
-                                            <p class="mb-0 addon-desc">Access to multiplayer games</p>
+                <!-- STEP 2 -->
+                <div class="tab col-12 col-md col-lg d-none">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Select your plan</h5>
+                            <p class="card-text">You have the option of monthly or yearly billing.</p>
+                            <form id="step2" class="row">
+                                <div class="form-check col-12 col-md mb-3 checked">
+                                    <input class="form-check-input plan" type="radio" name="billing" id="arcade" value="9" checked>
+                                    <label class="form-check-label row d-flex" for="arcade">
+                                        <div class="col-3 col-md-12">
+                                            <img src="./assets/images/icon-arcade.svg" alt="Arcade icon" />
                                         </div>
-                                        <div class="col-3 d-flex pe-0">
-                                            <span class="my-auto addon-price" id="online-price">+$1/mo</span>
+                                        <div class="col plan-details">
+                                            <p class="mb-0">Arcade</p>
+                                            <span class="price" id="arcade-price">$9/mo</span>
+                                            <p class="yearly-price mb-0"></p>
                                         </div>
                                     </label>
                                 </div>
-                            </div>
-                            <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
-                                <div class="d-flex pe-0">
-                                    <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="2" id="addon-storage" name="addon" data-addon="storage">
-                                    <label class="form-check-label row addon-name" for="addon-storage">
-                                        <div class="col-9">
-                                            <span>Larger storage</span>
-                                            <p class="mb-0 addon-desc">Extra 1TB of cloud save</p>
+                                <div class="form-check col-12 col-md mb-3">
+                                    <input class="form-check-input plan" type="radio" name="billing" id="advanced" value="12">
+                                    <label class="form-check-label row d-flex" for="advanced">
+                                        <div class="col-3 col-md-12">
+                                            <img src="./assets/images/icon-advanced.svg" alt="Arcade icon" />
                                         </div>
-                                        <div class="col-3 d-flex pe-0">
-                                            <span class="my-auto addon-price" id="storage-price">+$2/mo</span>
-                                    </label>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
-                                <div class="d-flex pe-0">
-                                    <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="2" id="addon-prof" name="addon" data-addon="prof">
-                                    <label class="form-check-label row addon-name" for="addon-prof">
-                                        <div class="col-9">
-                                            <span>Customizable profile</span>
-                                            <p class="mb-0 addon-desc">Custom theme on your profile</p>
-                                        </div>
-                                        <div class="col-3 d-flex pe-0">
-                                            <span class="my-auto addon-price" id="prof-price">+$2/mo</span>
+                                        <div class="col plan-details">
+                                            <p class="mb-0">Advanced</p>
+                                            <span class="price" id="advanced-price">$12/mo</span>
+                                            <p class="yearly-price mb-0"></p>
                                         </div>
                                     </label>
+                                </div>
+                                <div class="form-check col-12 col-md mb-3">
+                                    <input class="form-check-input plan" type="radio" name="billing" id="pro" value="15">
+                                    <label class="form-check-label row d-flex align-items-center" for="pro">
+                                        <div class="col-3 col-md-12">
+                                            <img src="./assets/images/icon-pro.svg" alt="Arcade icon" />
+                                        </div>
+                                        <div class="col plan-details">
+                                            <p class="mb-0">Pro</p>
+                                            <span class="price" id="pro-price">$15/mo</span>
+                                            <p class="yearly-price mb-0"></p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center plan-switch">
+                                    <div class="form-text selected-plan" data-type="monthly">Monthly</div>
+                                    <div class="form-check form-switch form-check-inline">
+                                        <input id="plan-type" class="form-check-input form-check-inline" type="checkbox" name="plan">
+                                    </div>
+                                    <div class="form-text" data-type="yearly">Yearly</div>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
-            <!-- STEP 4 -->
-            <div class="row tab d-none">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Finishing up</h5>
-                        <p class="card-text">Double-check everything looks OK before confirming.</p>
-                        <div class="total-summary-container p-3">
-                            <div class="row">
-                                <div class="col-8">
-                                    <p class="mb-0" id="total-type"></p>
+                <!-- STEP 3 -->
+                <div class="tab col-12 col-md col-lg d-none">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pick add-ons</h5>
+                            <p class="card-text">Add-ons help enhance your gaming experience.</p>
+                            <form id="step3">
+                                <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
+                                    <div class="d-flex pe-0">
+                                        <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="1" id="addon-online" name="addon" data-addon="online">
+                                        <label class="form-check-label row addon-name" for="addon-online">
+                                            <div class="col-9">
+                                                <span>Online service</span>
+                                                <p class="mb-0 addon-desc">Access to multiplayer games</p>
+                                            </div>
+                                            <div class="col-3 d-flex pe-0 addon-price-container">
+                                                <span class="my-auto addon-price" id="online-price">+$1/mo</span>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <p class="mb-0 price" id="total-billing-price"></p>
+                                <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
+                                    <div class="d-flex pe-0">
+                                        <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="2" id="addon-storage" name="addon" data-addon="storage">
+                                        <label class="form-check-label row addon-name" for="addon-storage">
+                                            <div class="col-9">
+                                                <span>Larger storage</span>
+                                                <p class="mb-0 addon-desc">Extra 1TB of cloud save</p>
+                                            </div>
+                                            <div class="col-3 d-flex pe-0 addon-price-container">
+                                                <span class="my-auto addon-price" id="storage-price">+$2/mo</span>
+                                        </label>
+                                    </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr />
-                            <div class="total-summary-val row">
-                                <div class="col-8">
-                                    <p id="total-online"></p>
-                                    <p id="total-storage"></p>
-                                    <p id="total-prof"></p>
+                                <div class="form-check row d-flex align-items-center mb-3 ps-4 addons">
+                                    <div class="d-flex pe-0">
+                                        <input class="form-check-input align-self-center me-3 addon" type="checkbox" value="2" id="addon-prof" name="addon" data-addon="prof">
+                                        <label class="form-check-label row addon-name" for="addon-prof">
+                                            <div class="col-9">
+                                                <span>Customizable profile</span>
+                                                <p class="mb-0 addon-desc">Custom theme on your profile</p>
+                                            </div>
+                                            <div class="col-3 d-flex pe-0 addon-price-container">
+                                                <span class="my-auto addon-price" id="prof-price">+$2/mo</span>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <p id="total-online-price" class="price"></p>
-                                    <p id="total-storage-price" class="price"></p>
-                                    <p id="total-prof-price" class="price"></p>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                        <div class="total-container pt-3 px-3">
-                            <div class="row">
-                                <div class="col-8">
-                                    <p id="grandtotal"></p>
+                    </div>
+                </div>
+                <!-- STEP 4 -->
+                <div class="tab col-12 col-md col-lg d-none">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Finishing up</h5>
+                            <p class="card-text">Double-check everything looks OK before confirming.</p>
+                            <div class="total-summary-container">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <p class="mb-0" id="total-type"></p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="mb-0 price" id="total-billing-price"></p>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <p id="grandtotal-price"></p>
+                                <hr />
+                                <div class="total-summary-val row">
+                                    <div class="col-8">
+                                        <p id="total-online"></p>
+                                        <p id="total-storage"></p>
+                                        <p id="total-prof"></p>
+                                    </div>
+                                    <div class="col">
+                                        <p id="total-online-price" class="price"></p>
+                                        <p id="total-storage-price" class="price"></p>
+                                        <p id="total-prof-price" class="price"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="total-container pt-3 px-3">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <p id="grandtotal"></p>
+                                    </div>
+                                    <div class="col">
+                                        <p id="grandtotal-price"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="btn-navigation my-auto">
-                <div class="d-flex justify-content-between btns">
-                    <button class="btn btn-secondary prev" type="button" data-tabnum="-1">Go Back</button>
-                    <button class="btn btn-primary next" type="submit" data-tabnum="1">Next Step</button>
+                <!-- CONFIRMATION -->
+                <div class="tab col-12 col-md col-lg d-none" id="confirmation">
+                    <div class="card">
+                        <div class="card-body d-flex align-items-center flex-column">
+                            <img src="./assets/images/icon-thank-you.svg" class="align-self-center" alt="Thank you"/>
+                            <h5 class="card-title py-3">Thank you!</h5>
+                            <p class="card-text text-center">Thanks for confirming your subscription!
+                                We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-navigation my-auto">
+                    <div class="btns">
+                        <button class="btn btn-secondary float-start prev" type="button" data-tabnum="-1">Go Back</button>
+                        <button class="btn btn-primary float-end next" type="submit" data-tabnum="1">Next Step</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,9 +1,6 @@
 $(document).ready(function() {
     var formData;
     const step1 = $("form#step1");
-    const name = $("input#form-name");
-    const email = $("input#form-email")
-    const phone = $("input#form-phone");
     const next = $(".next");
     const prev = $(".prev");
     const tabs = $(".tab");
@@ -13,6 +10,7 @@ $(document).ready(function() {
     const planPayment = planToggle.parent();    
     var planType = $(".plan-switch").find(".selected-plan").data("type");
     const addons = $("input.addon");
+    const navButtons = $(".btn-navigation");
 
     // -- -- FORM CONTROLLERS -- -- //
     
@@ -105,8 +103,9 @@ $(document).ready(function() {
             prev.removeClass("d-none");
         }
         // Show submit on last step
-        if (n == (tabs.length - 1)) {
+        if (n == (tabs.length - 2)) {
             next.text("Confirm");
+            next.addClass("confirm");
         } else {
             next.text("Next Step")
         }
@@ -120,7 +119,6 @@ $(document).ready(function() {
         currentTab += n;         // Increase current tab
         // If the end of the form is reached, submit form
         if (currentTab >= tabs.length) {
-            next.submit();
             return false;
         }
         showTab(currentTab);
@@ -131,7 +129,12 @@ $(document).ready(function() {
         for (var i = 0; i < steps.length; i++) {
             steps.eq(i).removeClass("active");
         }
-        steps.eq(n).addClass("active");
+        if (n == 4) {
+            steps.last().addClass("active");
+            navButtons.addClass("d-none");
+        } else {
+            steps.eq(n).addClass("active");
+        }
     }
 
     // Convert form data into JSON for storage
