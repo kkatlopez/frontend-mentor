@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub](https://your-solution-url.com)
-- Live Site URL: [Vercel](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/kkatlopez/frontend-mentor/tree/main/multi-step-form)
+- Live Site URL: [Vercel](https://frontend-mentor-kkatlopez.vercel.app/multi-step-form/index.html)
 
 ## My process
 
